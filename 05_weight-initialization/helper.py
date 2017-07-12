@@ -11,7 +11,7 @@ def hist_dist(title, distribution_tensor, hist_range=(-4, 4)):
         values = sess.run(distribution_tensor)
 
     plt.title(title)
-    plt.hist(values, np.linspace(*hist_range, num=len(values)/2))
+    plt.hist(values, np.linspace(*hist_range, num=len(values)/10))
     plt.show()
 
 
@@ -97,14 +97,15 @@ def compare_init_weights(
     for i, (weights, label) in enumerate(weight_init_list):
         loss, val_acc = _get_loss_acc(dataset, weights)
 
+        plt.subplot(len(weight_init_list), 1, i + 1)
         plt.plot(loss[:plot_n_batches], colors[i], label=label)
         label_accs.append((label, val_acc))
         label_loss.append((label, loss[-1]))
 
-    plt.title(title)
-    plt.xlabel('Batches')
-    plt.ylabel('Loss')
-    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        plt.title(title)
+        plt.xlabel('Batches')
+        plt.ylabel('Loss')
+        plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
     plt.show()
 
     print('After 858 Batches (2 Epochs):')

@@ -9,3 +9,6 @@ embeddings/text8.zip
 *.pickle
 *.zip
 
+__pycache__/
+*.py[cod]
+
