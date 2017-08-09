@@ -1,8 +1,9 @@
 .DS_Store
 
 # Ignore downloaded datasets
-embeddings/data/
-embeddings/text8.zip
+10_embeddings/data/
+10_embeddings/text8.zip
+10_embeddings/checkpoints
 face_generation/data/
 
 .ipynb_checkpoints/
